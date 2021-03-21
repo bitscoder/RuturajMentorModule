@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Add Employee</h2>
+    <div class="jumbotron">
+        <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+            <div class="form-group">
+              <label for="emp_id">Employee id:</label>
+              <input class="form-control" type="text" name="emp_id" id="emp_id" ngModel required>
+            </div>
+            
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input class="form-control" type="text" name="name" id="name" ngModel required>
+            </div>
+
+            <div class="form-group">
+              <label for="team">Team:</label>
+              <input class="form-control" type="text" name="team" id="team" ngModel required>
+            </div>
+
+            <div class="form-group">
+                <label for="designation">Designation:</label>
+                <select name="designation" id="designation" class="form-select justify-content-end" ngModel required>
+                  <option value="Tester">Tester</option>
+                  <option value="Developer">Developer</option>
+              </select>
+              
+            </div>
+            <div class="form-group">
+              <label>Gender:</label>
+              <div class="me-5 radio" *ngFor="let gender of genders"> 
+                <label>
+                    <input type="radio" name="gender" class="form-check-input" ngModel [value]="gender" required> {{ gender }}
+                </label>
+              </div>
+            </div>
+  
+            <div class="form-group">
+                <label for="doj">Joining Date:</label>
+                <input type="text" placeholder="Select Date" id="doj" name="doj" class="form-control" bsDatepicker
+                 ngModel required>
+            </div>
+
+            <div class="form-group justify-content-between">
+              <button [disabled]="myForm.form.invalid" class="btn btn-primary float-end " >Submit</button>
+            </div>
+          </form>
+    </div>
+</div>
